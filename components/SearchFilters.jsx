@@ -24,9 +24,11 @@ const SearchFilters = () => {
 
     //update Query
     values.forEach((item) => {
-      // query[key] = value     => obj
-      // we fill value into obj of query
-      query[item.name] = item.value;
+      if (item.value && filterValues?.[item.name]) {
+        // query[key] = value     => obj
+        // we fill value into obj of query
+        query[item.name] = item.value;
+      }
     });
 
     //create pathname & query on URL
